@@ -68,6 +68,8 @@ const PopularProducts = () => {
                                 name={el.name}
                                 oldPrice={el.oldPrice}
                                 currentPrice={el.currentPrice}
+                                id={el.id}
+                                mark={el?.mark}
                             />
                         </SwiperSlide>
                     ))}
