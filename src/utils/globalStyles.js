@@ -86,5 +86,10 @@ export const GlobalStyles = createGlobalStyle`
       ${adaptiveValue("font-size", 14, 12)}
     }
 
+    button {
+        background-color: transparent;
+        cursor: pointer;
+    }
+
     
 `;

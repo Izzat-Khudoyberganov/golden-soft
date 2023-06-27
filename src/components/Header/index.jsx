@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import BurgerMenu from "./BurgerMenu";
 import HeaderTop from "./HeaderTop";
@@ -7,12 +7,20 @@ import * as Style from "./style";
 
 import { CartIcon, LogoIcon, PhoneLogo } from "assets/images/svgIcons";
 import like from "assets/images/like.png";
+import CartModal from "components/CartModal";
+import MainContext from "reducer/CartContext";
 
 const Header = () => {
     const [burger, setBurger] = useState(false);
+    const [cartModal, setCartModal] = useState(false);
+    const { cartItems } = useContext(MainContext);
 
     const handleClick = () => {
         setBurger(!burger);
+    };
+
+    const handleModal = () => {
+        setCartModal(!cartModal);
     };
 
     useEffect(() => {
@@ -54,12 +62,19 @@ const Header = () => {
                                 <Link to='/'>
                                     <img src={like} alt='like' />
                                 </Link>
-                                <Link to='/cart'>
+
+                                <button onClick={handleModal}>
                                     <CartIcon />
-                                </Link>
+                                    {cartItems.length}
+                                </button>
                             </Style.ActionBox>
                         </Style.UserActions>
                     </Style.HeaderNavContent>
+                    <CartModal
+                        cartModal={cartModal}
+                        handleModal={handleModal}
+                        data={cartItems}
+                    />
                 </Container>
                 <BurgerMenu open={burger} handleClick={handleClick} />
             </Style.HeaderNavbar>

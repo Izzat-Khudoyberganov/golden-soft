@@ -13,7 +13,6 @@ const HeaderNavbar = styled.div`
     background: ${Colors.light};
     box-shadow: inset 0px -1px 0px ${Colors.borderColor};
     position: relative;
-    z-index: 100;
 `;
 
 const LogoLink = styled(Link)`
