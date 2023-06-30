@@ -1,7 +1,7 @@
 import Header from "components/Header";
 import styled from "styled-components";
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ProductCard from "components/ProductCard";
 import { Container } from "components/Container/style";
@@ -11,10 +11,12 @@ import PopularProducts from "components/PopularProducts";
 import ContactForm from "components/ContactForm";
 import InfoColumns from "components/InfoColumns";
 import { infoData, infoSecondData } from "components/InfoColumns/data";
+import MainContext from "reducer/CartContext";
 
 const Category = () => {
     const { type } = useParams();
     const [data, setData] = useState([]);
+    const { cartItems, likeItems } = useContext(MainContext);
     const categoryText = type.toLocaleLowerCase();
 
     async function getProduct() {
@@ -37,7 +39,12 @@ const Category = () => {
                 <BreadCrumbs disableText={"Каталог"} />
                 <CategoryListWrapper>
                     {data?.map((el) => (
-                        <ProductCard key={el.id} data={el} />
+                        <ProductCard
+                            key={el.id}
+                            data={el}
+                            select={cartItems.find((item) => item.id == el.id)}
+                            like={likeItems.some((item) => item.id == el.id)}
+                        />
                     ))}
                 </CategoryListWrapper>
             </Container>

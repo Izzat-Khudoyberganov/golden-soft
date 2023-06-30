@@ -6,6 +6,10 @@ const ProductWrapper = styled.div`
     ${Flex.spaceBetween}
     width: 100%;
     height: 100%;
+
+    &:not(:last-child) {
+        margin-bottom: 20px;
+    }
 `;
 const ImageWrapper = styled.div`
     width: 136px;
@@ -24,6 +28,7 @@ const ProductInfoWrapper = styled.div`
 `;
 const ProductInfo = styled.div`
     ${Flex.spaceBetween}
+    align-items: flex-start;
     flex-direction: column;
     gap: 30px;
     height: 100%;
@@ -55,19 +60,26 @@ const ProductCount = styled.span`
     color: ${Colors.dark};
 `;
 
-const ProductAction = styled.div`
-    ${Flex.spaceBetween};
+const Actions = styled.div`
+    ${Flex.justFlex};
+    gap: 30px;
     flex-direction: column;
+    justify-content: space-between;
+    align-items: start;
 `;
-
+const Block = styled.div`
+    ${Flex.alignCenter}
+    gap: 12px;
+`;
 export {
     ProductWrapper,
     ImageWrapper,
     ProductInfoWrapper,
     ProductInfo,
-    ProductAction,
     BtnGroup,
     CounterBtn,
     ProductCount,
     ProductInfoTitle,
+    Actions,
+    Block,
 };
