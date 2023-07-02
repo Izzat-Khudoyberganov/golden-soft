@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import Rate from "components/Rate";
 import { Button, IconButton } from "@mui/material";
-import MainContext from "reducer/CartContext";
+import MainContext from "context/CartContext";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 import FavoriteRoundedIcon from "@mui/icons-material/FavoriteRounded";
 import ShoppingBagOutlinedIcon from "@mui/icons-material/ShoppingBagOutlined";
@@ -28,7 +28,7 @@ const ProductCard = ({ data, select, like }) => {
                     </S.CashText>
                 </S.InCashTextBox>
                 <S.SaleBox>Sale</S.SaleBox>
-                <S.ProductImage src={image} />
+                <S.ProductImage src={image} alt={name} />
             </S.ProductImageLink>
             <S.ProductCardInfo>
                 <S.RateText>
@@ -50,9 +50,9 @@ const ProductCard = ({ data, select, like }) => {
                         </IconButton>
                         <IconButton onClick={likeToggle}>
                             {like ? (
-                                <FavoriteBorderOutlinedIcon color='error' />
-                            ) : (
                                 <FavoriteRoundedIcon color='error' />
+                            ) : (
+                                <FavoriteBorderOutlinedIcon color='error' />
                             )}
                         </IconButton>
                     </div>

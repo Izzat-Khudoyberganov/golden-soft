@@ -1,11 +1,13 @@
 import React, { useEffect, useReducer } from "react";
 import mainReducer from "./CartReducer";
-import MainContext from "./CartContext";
+import MainContext from "../context/CartContext";
 import {
+    ADD_ONE,
     ADD_TO_CART,
     ADD_TO_LIKEBOX,
     REMOVE_FROM_CART,
     REMOVE_FROM_LIKEBOX,
+    REMOVE_ONE,
 } from "./types";
 
 const CartState = ({ children }) => {
@@ -26,6 +28,9 @@ const CartState = ({ children }) => {
     const removeFromLike = (id) =>
         dispatch({ type: REMOVE_FROM_LIKEBOX, payload: id });
 
+    const addOne = (id) => dispatch({ type: ADD_ONE, payload: id });
+
+    const removeOne = (id) => dispatch({ type: REMOVE_ONE, payload: id });
     useEffect(() => {
         localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
     }, [state.cartItems]);
@@ -43,6 +48,8 @@ const CartState = ({ children }) => {
                 removeFromCart,
                 addToLike,
                 removeFromLike,
+                addOne,
+                removeOne,
             }}
         >
             {children}

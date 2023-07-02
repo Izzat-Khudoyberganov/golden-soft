@@ -11,7 +11,7 @@ import PopularProducts from "components/PopularProducts";
 import ContactForm from "components/ContactForm";
 import InfoColumns from "components/InfoColumns";
 import { infoData, infoSecondData } from "components/InfoColumns/data";
-import MainContext from "reducer/CartContext";
+import MainContext from "context/CartContext";
 
 const Category = () => {
     const { type } = useParams();

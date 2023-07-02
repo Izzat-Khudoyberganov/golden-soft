@@ -50,7 +50,7 @@ const CounterBtn = styled.button`
     color: ${Colors.dark};
 
     &:disabled {
-        color: ${Colors.lightGray};
+        color: ${Colors.borderColor};
     }
 `;
 

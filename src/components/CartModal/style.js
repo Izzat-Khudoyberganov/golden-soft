@@ -11,7 +11,6 @@ const ModalBox = styled(Box)`
     transform: translate(-50%, -50%);
     max-width: 836px;
     ${adaptiveValue("width", 816, 343)}
-    overflow-y: auto;
     background-color: ${Colors.light};
     height: 500px;
 `;
@@ -26,9 +25,6 @@ const ModalBoxHeader = styled.div`
     ${Flex.spaceBetween}
     border-bottom: 1px solid ${Colors.borderColor};
     padding: 16px 40px;
-    position: fixed;
-    top: 0;
-    left: 0;
     width: 100%;
     z-index: 1001;
     background-color: ${Colors.light};
@@ -47,8 +43,7 @@ const ModalBoxBody = styled.div`
     display: ${({ isEmpty }) => (isEmpty ? "flex" : "block")};
     align-items: ${({ isEmpty }) => isEmpty && "center"};
     justify-content: ${({ isEmpty }) => isEmpty && "center"};
-    position: static;
-    z-index: -1002;
+    overflow-y: auto;
 `;
 
 const ProductList = styled.ul`

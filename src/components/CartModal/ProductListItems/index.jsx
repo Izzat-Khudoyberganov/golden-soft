@@ -1,13 +1,14 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
-import MainContext from "reducer/CartContext";
+import MainContext from "context/CartContext";
 import { IconButton } from "@mui/material";
 import DeleteOutlinedIcon from "@mui/icons-material/DeleteOutlined";
 import * as S from "./style";
 
 const ProductListItems = ({ product }) => {
-    const { image, name, currentPrice, id } = product;
-    const { removeFromCart } = useContext(MainContext);
+    const { image, name, currentPrice, id, quantity } = product;
+    const { removeFromCart, addOne, removeOne } = useContext(MainContext);
+
     return (
         <S.ProductWrapper>
             <S.Block>
@@ -20,9 +21,16 @@ const ProductListItems = ({ product }) => {
                     <S.ProductInfo>
                         <S.ProductInfoTitle>{name}</S.ProductInfoTitle>
                         <S.BtnGroup>
-                            <S.CounterBtn>-</S.CounterBtn>
-                            <S.ProductCount>1</S.ProductCount>
-                            <S.CounterBtn>+</S.CounterBtn>
+                            <S.CounterBtn
+                                onClick={() => removeOne(id)}
+                                disabled={quantity == 1}
+                            >
+                                -
+                            </S.CounterBtn>
+                            <S.ProductCount>{quantity}</S.ProductCount>
+                            <S.CounterBtn onClick={() => addOne(id)}>
+                                +
+                            </S.CounterBtn>
                         </S.BtnGroup>
                     </S.ProductInfo>
                 </S.ProductInfoWrapper>
@@ -31,7 +39,7 @@ const ProductListItems = ({ product }) => {
                 <IconButton onClick={() => removeFromCart(id)}>
                     <DeleteOutlinedIcon color='primary' />
                 </IconButton>
-                <p>{currentPrice}</p>
+                <p>{(currentPrice * quantity).toLocaleString()}</p>
             </S.Actions>
         </S.ProductWrapper>
     );
