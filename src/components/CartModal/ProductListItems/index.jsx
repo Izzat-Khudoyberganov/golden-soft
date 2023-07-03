@@ -21,10 +21,7 @@ const ProductListItems = ({ product }) => {
                     <S.ProductInfo>
                         <S.ProductInfoTitle>{name}</S.ProductInfoTitle>
                         <S.BtnGroup>
-                            <S.CounterBtn
-                                onClick={() => removeOne(id)}
-                                disabled={quantity == 1}
-                            >
+                            <S.CounterBtn onClick={() => removeOne(id)}>
                                 -
                             </S.CounterBtn>
                             <S.ProductCount>{quantity}</S.ProductCount>

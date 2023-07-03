@@ -17,11 +17,12 @@ const mainReducer = (state, action) => {
                     { ...action.payload, quantity: 1 },
                 ],
             };
+
         case ADD_ONE:
             return {
                 ...state,
                 cartItems: state.cartItems.map((item) =>
-                    item.id === action.payload
+                    item.id == action.payload
                         ? { ...item, quantity: item.quantity + 1 }
                         : item
                 ),
@@ -49,6 +50,7 @@ const mainReducer = (state, action) => {
                 ...state,
                 likeItems: [...state.likeItems, action.payload],
             };
+
         case REMOVE_FROM_LIKEBOX:
             return {
                 ...state,
@@ -56,8 +58,9 @@ const mainReducer = (state, action) => {
                     (el) => el.id !== action.payload
                 ),
             };
+
         default:
-            return "hii";
+            return state;
     }
 };
 

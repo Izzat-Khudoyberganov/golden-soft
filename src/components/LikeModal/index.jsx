@@ -1,5 +1,4 @@
 import * as React from "react";
-import Button from "@mui/material/Button";
 import Modal from "@mui/material/Modal";
 import {
     CloseBtn,
@@ -8,8 +7,11 @@ import {
     ModalBoxHeader,
 } from "components/CartModal/style";
 import { CloseIcon } from "assets/images/svgIcons";
+import MainContext from "context/CartContext";
 
 export default function LikeModal({ likeModal, handleLike }) {
+    const { likeItems } = React.useContext(MainContext);
+
     return (
         <div>
             <Modal
@@ -25,6 +27,11 @@ export default function LikeModal({ likeModal, handleLike }) {
                             <CloseIcon />
                         </CloseBtn>
                     </ModalBoxHeader>
+                    <div>
+                        {likeItems.map((el) => (
+                            <p>{el.name}</p>
+                        ))}
+                    </div>
                 </ModalBox>
             </Modal>
         </div>

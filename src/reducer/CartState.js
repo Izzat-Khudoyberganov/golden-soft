@@ -31,6 +31,7 @@ const CartState = ({ children }) => {
     const addOne = (id) => dispatch({ type: ADD_ONE, payload: id });
 
     const removeOne = (id) => dispatch({ type: REMOVE_ONE, payload: id });
+
     useEffect(() => {
         localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
     }, [state.cartItems]);
