@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import Modal from "@mui/material/Modal";
 import ProductListItems from "./ProductListItems";
 import Button from "components/Button";
@@ -15,6 +15,7 @@ export default function CartModal({ cartModal, handleModal, data }) {
             accumulator + currentValue.currentPrice * currentValue.quantity,
         0
     );
+
     return (
         <Modal
             open={cartModal}

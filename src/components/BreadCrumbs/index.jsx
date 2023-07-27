@@ -1,4 +1,3 @@
-import React from "react";
 import { CatalogBreadCrumbs, CurrentPageLink } from "pages/Catalog/style";
 import { Link } from "react-router-dom";
 
