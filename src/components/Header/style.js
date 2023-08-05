@@ -12,7 +12,7 @@ const HeaderWrapper = styled.header`
 
 const HeaderNavbar = styled.div`
     width: 100%;
-    padding-block: 20px;
+    /* padding-block: 20px; */
     background: ${Colors.light};
     box-shadow: inset 0px -1px 0px ${Colors.borderColor};
     position: relative;
@@ -30,7 +30,7 @@ const HeaderNavContent = styled.div`
 
 const HeaderNavLinkList = styled.nav`
     ${Flex.spaceBetween}
-    ${adaptiveValue("gap", 32, 15)}
+    /* ${adaptiveValue("gap", 32, 15)} */
 
     @media (max-width: 768px) {
         display: none;
@@ -42,6 +42,15 @@ const NavLink = styled(Link)`
     ${adaptiveValue("font-size", 20, 14)}
     line-height: 24px;
     color: ${Colors.dark};
+    font-family: "Open Sans";
+    font-weight: 400;
+    padding: 20px 32px;
+    transition: 0.4s;
+
+    &:hover {
+        background-color: ${Colors.primaryColor};
+        color: ${Colors.light};
+    }
 `;
 
 const UserActions = styled.div`

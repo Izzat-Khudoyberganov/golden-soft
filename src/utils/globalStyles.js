@@ -12,6 +12,11 @@ export const GlobalStyles = createGlobalStyle`
         text-decoration: none;
     }
 
+    body {
+        font-family: "Open Sans";
+        font-weight: 400;
+    }
+
     .swiper {
         width: 100%;
         height: 100%;

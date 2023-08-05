@@ -5,8 +5,12 @@ import { Container } from "components/Container/style";
 import Badge from "@mui/material/Badge";
 import * as Style from "./style";
 
-import { CartIcon, LogoIcon, PhoneLogo } from "assets/images/svgIcons";
-import like from "assets/images/like.png";
+import {
+    CartIcon,
+    LogoIcon,
+    PhoneLogo,
+    LikeIcon,
+} from "assets/images/svgIcons";
 import CartModal from "components/CartModal";
 import MainContext from "context/CartContext";
 import LikeModal from "components/LikeModal";
@@ -74,8 +78,11 @@ const Header = () => {
                                         badgeContent={Number(likeItems.length)}
                                         color='primary'
                                     >
-                                        <button onClick={handleLike}>
-                                            <img src={like} alt='' />
+                                        <button
+                                            type='button'
+                                            onClick={handleLike}
+                                        >
+                                            <LikeIcon />
                                         </button>
                                     </Badge>
                                     <Badge

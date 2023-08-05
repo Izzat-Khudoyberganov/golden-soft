@@ -14,6 +14,8 @@ const ButtonWrapper = styled.button`
     cursor: pointer;
     border: 1px solid ${Colors.primaryColor};
     transition: 0.4s;
+    font-family: "Open Sans";
+    font-weight: 500;
 
     &:hover {
         background-color: transparent;
