@@ -12,7 +12,7 @@ const ModalBox = styled(Box)`
     max-width: 836px;
     ${adaptiveValue("width", 816, 343)}
     background-color: ${Colors.light};
-    height: 500px;
+    height: 550px;
 `;
 
 const CloseBtn = styled.button`
@@ -38,8 +38,7 @@ const HeaderTitle = styled.h2`
 `;
 
 const ModalBoxBody = styled.div`
-    padding: 16px 40px;
-    height: 430px;
+    padding: 24px 40px;
     display: ${({ isEmpty }) => (isEmpty ? "flex" : "block")};
     align-items: ${({ isEmpty }) => isEmpty && "center"};
     justify-content: ${({ isEmpty }) => isEmpty && "center"};
@@ -51,6 +50,11 @@ const ProductList = styled.ul`
     flex-direction: column;
     width: 100%;
     column-gap: 30px;
+    overflow-y: auto;
+    height: 400px;
+    &::-webkit-scrollbar {
+        display: none;
+    }
 `;
 
 const EmptyTitle = styled.h2`

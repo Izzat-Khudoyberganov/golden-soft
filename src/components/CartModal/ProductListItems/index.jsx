@@ -1,7 +1,6 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import MainContext from "context/CartContext";
-import { IconButton } from "@mui/material";
 import DeleteOutlinedIcon from "@mui/icons-material/DeleteOutlined";
 import * as S from "./style";
 
@@ -33,9 +32,10 @@ const ProductListItems = ({ product }) => {
                 </S.ProductInfoWrapper>
             </S.Block>
             <S.Actions>
-                <IconButton onClick={() => removeFromCart(id)}>
+                <S.DeleteButton onClick={() => removeFromCart(id)}>
                     <DeleteOutlinedIcon color='primary' />
-                </IconButton>
+                    Удалить
+                </S.DeleteButton>
                 <p>{(currentPrice * quantity).toLocaleString()}</p>
             </S.Actions>
         </S.ProductWrapper>

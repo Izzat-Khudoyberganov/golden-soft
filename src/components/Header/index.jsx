@@ -104,6 +104,7 @@ const Header = () => {
                         <LikeModal
                             likeModal={likeModal}
                             handleLike={handleLike}
+                            data={likeItems}
                         />
                     </Container>
                     <BurgerMenu open={burger} handleClick={handleClick} />

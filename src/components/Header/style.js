@@ -12,7 +12,6 @@ const HeaderWrapper = styled.header`
 
 const HeaderNavbar = styled.div`
     width: 100%;
-    /* padding-block: 20px; */
     background: ${Colors.light};
     box-shadow: inset 0px -1px 0px ${Colors.borderColor};
     position: relative;
@@ -30,8 +29,6 @@ const HeaderNavContent = styled.div`
 
 const HeaderNavLinkList = styled.nav`
     ${Flex.spaceBetween}
-    /* ${adaptiveValue("gap", 32, 15)} */
-
     @media (max-width: 768px) {
         display: none;
     }

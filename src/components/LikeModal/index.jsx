@@ -2,16 +2,17 @@ import * as React from "react";
 import Modal from "@mui/material/Modal";
 import {
     CloseBtn,
+    EmptyTitle,
     HeaderTitle,
     ModalBox,
+    ModalBoxBody,
     ModalBoxHeader,
+    ProductList,
 } from "components/CartModal/style";
 import { CloseIcon } from "assets/images/svgIcons";
-import MainContext from "context/CartContext";
+import LikeListItems from "./LikeLIstItems";
 
-export default function LikeModal({ likeModal, handleLike }) {
-    const { likeItems } = React.useContext(MainContext);
-
+export default function LikeModal({ likeModal, handleLike, data }) {
     return (
         <div>
             <Modal
@@ -22,16 +23,24 @@ export default function LikeModal({ likeModal, handleLike }) {
             >
                 <ModalBox>
                     <ModalBoxHeader>
-                        <HeaderTitle>hiii</HeaderTitle>
+                        <HeaderTitle>Понравившиеся продукты</HeaderTitle>
                         <CloseBtn onClick={() => handleLike()}>
                             <CloseIcon />
                         </CloseBtn>
                     </ModalBoxHeader>
-                    <div>
-                        {likeItems.map((el) => (
-                            <p>{el.name}</p>
-                        ))}
-                    </div>
+                    <ModalBoxBody isEmpty={!data.length}>
+                        <ProductList>
+                            {data.length ? (
+                                data.map((el) => (
+                                    <LikeListItems key={el.id} product={el} />
+                                ))
+                            ) : (
+                                <EmptyTitle>
+                                    Корзина на данный момент пуста 🤷‍♂️🤷‍♂️🤷‍♂️
+                                </EmptyTitle>
+                            )}
+                        </ProductList>
+                    </ModalBoxBody>
                 </ModalBox>
             </Modal>
         </div>
