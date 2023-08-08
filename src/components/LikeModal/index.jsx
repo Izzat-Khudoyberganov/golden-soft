@@ -11,8 +11,10 @@ import {
 } from "components/CartModal/style";
 import { CloseIcon } from "assets/images/svgIcons";
 import LikeListItems from "./LikeLIstItems";
+import MainContext from "context/CartContext";
 
 export default function LikeModal({ likeModal, handleLike, data }) {
+    const { cartItems } = React.useContext(MainContext);
     return (
         <div>
             <Modal
@@ -32,7 +34,13 @@ export default function LikeModal({ likeModal, handleLike, data }) {
                         <ProductList>
                             {data.length ? (
                                 data.map((el) => (
-                                    <LikeListItems key={el.id} product={el} />
+                                    <LikeListItems
+                                        key={el.id}
+                                        product={el}
+                                        select={cartItems.find(
+                                            (item) => item.id == el.id
+                                        )}
+                                    />
                                 ))
                             ) : (
                                 <EmptyTitle>

@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import MainContext from "context/CartContext";
 import AddIcon from "@mui/icons-material/Add";
+import DeleteIcon from "@mui/icons-material/Delete";
 import * as S from "./style";
 
 const LikeListItems = ({ product, select }) => {
@@ -23,9 +24,22 @@ const LikeListItems = ({ product, select }) => {
                 </S.ProductInfoWrapper>
             </S.Block>
             <S.Actions>
-                <S.DeleteButton onClick={() => addToCart(product)}>
-                    <AddIcon color='primary' />
-                    Add to cart
+                <S.DeleteButton
+                    onClick={() =>
+                        select ? removeFromCart(id) : addToCart(product)
+                    }
+                >
+                    {select ? (
+                        <>
+                            <AddIcon color='primary' />
+                            Добавить
+                        </>
+                    ) : (
+                        <>
+                            <DeleteIcon color='primary' />
+                            Удалять
+                        </>
+                    )}
                 </S.DeleteButton>
                 <p>{currentPrice}</p>
             </S.Actions>

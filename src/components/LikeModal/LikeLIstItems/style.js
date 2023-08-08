@@ -62,11 +62,11 @@ const ProductCount = styled.span`
 `;
 
 const Actions = styled.div`
-    ${Flex.justFlex};
+    ${Flex.center};
     gap: 30px;
     flex-direction: column;
     justify-content: space-between;
-    align-items: start;
+    align-items: end;
 `;
 const Block = styled.div`
     ${Flex.alignCenter}
