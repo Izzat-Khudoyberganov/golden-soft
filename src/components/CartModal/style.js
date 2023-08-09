@@ -46,7 +46,7 @@ const ModalBoxBody = styled.div`
 `;
 
 const ProductList = styled.ul`
-    ${Flex.spaceBetween};
+    ${Flex.justFlex};
     flex-direction: column;
     width: 100%;
     column-gap: 30px;

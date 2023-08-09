@@ -23,7 +23,7 @@ const ButtonWrapper = styled.button`
     }
 `;
 const Button = ({ text }) => {
-    return <ButtonWrapper>{text}</ButtonWrapper>;
+    return <ButtonWrapper type='button'>{text}</ButtonWrapper>;
 };
 
 export default Button;

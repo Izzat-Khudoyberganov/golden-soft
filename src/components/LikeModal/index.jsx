@@ -10,7 +10,7 @@ import {
     ProductList,
 } from "components/CartModal/style";
 import { CloseIcon } from "assets/images/svgIcons";
-import LikeListItems from "./LikeLIstItems";
+import LikeListItems from "./LikeListItems";
 import MainContext from "context/CartContext";
 
 export default function LikeModal({ likeModal, handleLike, data }) {

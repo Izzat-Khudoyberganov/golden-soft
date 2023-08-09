@@ -3,11 +3,13 @@ import { Link } from "react-router-dom";
 import MainContext from "context/CartContext";
 import AddIcon from "@mui/icons-material/Add";
 import DeleteIcon from "@mui/icons-material/Delete";
+import { Button } from "@mui/material";
 import * as S from "./style";
 
 const LikeListItems = ({ product, select }) => {
     const { image, name, currentPrice, id } = product;
-    const { addToCart, removeFromCart } = useContext(MainContext);
+    const { addToCart, removeFromCart, removeFromLike } =
+        useContext(MainContext);
 
     return (
         <S.ProductWrapper>
@@ -20,6 +22,12 @@ const LikeListItems = ({ product, select }) => {
                 <S.ProductInfoWrapper>
                     <S.ProductInfo>
                         <S.ProductInfoTitle>{name}</S.ProductInfoTitle>
+                        <Button
+                            variant='contained'
+                            onClick={() => removeFromLike(id)}
+                        >
+                            delete{" "}
+                        </Button>
                     </S.ProductInfo>
                 </S.ProductInfoWrapper>
             </S.Block>
@@ -31,13 +39,13 @@ const LikeListItems = ({ product, select }) => {
                 >
                     {select ? (
                         <>
-                            <AddIcon color='primary' />
-                            Добавить
+                            <DeleteIcon color='primary' />
+                            Удалить
                         </>
                     ) : (
                         <>
-                            <DeleteIcon color='primary' />
-                            Удалять
+                            <AddIcon color='primary' />
+                            Добавить
                         </>
                     )}
                 </S.DeleteButton>
